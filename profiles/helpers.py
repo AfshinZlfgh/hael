@@ -1,12 +1,21 @@
-from profiles.models import Profile, IpSpec
+import json
+import os
+
+from profiles.models import IpSpec
 
 
 def whitelist_new_client_ip(client_ip: str):
-    pass
+    conf_contents = open('config.json').read()
+    conf_all = json.loads(conf_contents)
+    cmd_text = ' '.join(conf_all['add_whitelist_cmd'])
+    os.system(cmd_text)
 
 
 def remove_whitelist_ip(client_ip: str):
-    pass
+    conf_contents = open('config.json').read()
+    conf_all = json.loads(conf_contents)
+    cmd_text = ' '.join(conf_all['remove_whitelist_cmd'])
+    os.system(cmd_text)
 
 
 def get_client_ip(request):

@@ -1,0 +1,4 @@
+{
+  "add_whitelist_cmd": ["ls", "-a", "/"],
+  "remove_whitelist_cmd": ["ls", "-a", "/"]
+}
